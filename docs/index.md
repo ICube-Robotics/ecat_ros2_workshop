@@ -128,7 +128,6 @@ This project is open source. Check the repository for license information.
 ### Asterion Robotics
 [![Asterion](https://raw.githubusercontent.com/Asterion-Robotics/assets/refs/heads/main/asterion-logo.png){ width="200" }](https://asterion-robotics.com)
 
-Industrial robotics solutions
 </div>
 
 </div>
