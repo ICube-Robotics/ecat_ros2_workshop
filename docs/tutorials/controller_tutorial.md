@@ -21,7 +21,7 @@ The controller plugin for the tutorial robot is called `ScaraJointVelocityContro
 8. `on_error`
 9. `on_shutdown`
 
-These methods are defined in the [scara_joint_velocity_controller.hpp](../scara_controllers/scara_joint_velocity_controller/include/scara_joint_velocity_controller/scara_joint_velocity_controller.hpp) header file as follows:
+These methods are defined in the [scara_joint_velocity_controller.hpp](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_controllers/scara_joint_velocity_controller/include/scara_joint_velocity_controller/scara_joint_velocity_controller.hpp) header file as follows:
 ```c++
 class ScaraJointVelocityController : public controller_interface::ControllerInterface {
     public:
@@ -226,7 +226,7 @@ The plugin description file is again required for the controller, since it is ex
   </class>
 </library>
 ```
- See [here](../scara_controllers/scara_joint_velocity_controller/controller_plugin.xml) for the complete XML file.
+ See [here](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_controllers/scara_joint_velocity_controller/controller_plugin.xml) for the complete XML file.
 
 ### Exporting the CMake library
 The plugin must be specified in the CMake file that builds the controller plugin. 
@@ -249,11 +249,11 @@ pluginlib_export_plugin_description_file(scara_joint_velocity_controller control
 # ...
 ```
 
-See [here](../scara_controllers/scara_joint_velocity_controller/CMakeLists.txt) for the complete `CMakeLists.txt` file.
+See [here](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_controllers/scara_joint_velocity_controller/CMakeLists.txt) for the complete `CMakeLists.txt` file.
 
-Now that the controller is ready to be used, let's add it to the [scara_controllers.yaml](../scara_description/config/scara_controllers.yaml) file and run it on the scara robot! 
+Now that the controller is ready to be used, let's add it to the [scara_controllers.yaml](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/config/scara_controllers.yaml) file and run it on the scara robot! 
 
-To do so, in the [scara_controllers.yaml](../scara_description/config/scara_controllers.yaml) file add :
+To do so, in the [scara_controllers.yaml](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/config/scara_controllers.yaml) file add :
 ``` yaml
 controller_manager:
   ros__parameters:

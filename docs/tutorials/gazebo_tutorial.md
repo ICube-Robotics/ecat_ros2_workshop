@@ -6,7 +6,7 @@ In this section of the tutorial, we will focus on how to simulate the SCARA robo
 ## Adding the Gazebo description to the URDF
 In order to use ros2_control with Gazebo, some additional setup steps are required in the robot description. In fact, Gazebo allows to implement Gazebo plugins to interact with the simulation, what is used to create a bridge between Gazebo and ros2_control. The `gazebo_ros2_control` plugin is used for this reason. In contrary to the previous steps where the Controller Manager was acting as a standalone ROS2 node, in this case the `gazebo_ros2_control` plugin is responsible of running an instance of the Controller Manager inside the Gazebo node.   
 
-This can be done by adding a [`scara.gazebo.xacro`](../scara_description/gazebo/scara.gazebo.xacro) configuration file in the `scara_description` package, that contains:
+This can be done by adding a [`scara.gazebo.xacro`](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/gazebo/scara.gazebo.xacro) configuration file in the `scara_description` package, that contains:
 
 ```xml
 <?xml version="1.0"?>
@@ -32,16 +32,16 @@ This can be done by adding a [`scara.gazebo.xacro`](../scara_description/gazebo/
 
 </robot>
 ```
-In this description file, the `gazebo` tags are used to specify parameters to be used by Gazebo and in particular the `plugin` that needs to be loaded. The plugin here is the `gazebo_ros2_control` plugin contained in the `libgazebo_ros2_control.so` library. This plugin takes 2 parameters in the same way as the ControllerManager before, which are the [`scara_controllers.yaml`](../scara_description/config/scara_controllers.yaml) configuration file and the name of the node that published the `robot_description` topic, which is by default done by the `robot_state_publisher` node. The `gazebo` tags are also used to add additional gazebo parameters to already defined objects. Here we use them to fix the robot to a static world frame and to add a color to each link. 
+In this description file, the `gazebo` tags are used to specify parameters to be used by Gazebo and in particular the `plugin` that needs to be loaded. The plugin here is the `gazebo_ros2_control` plugin contained in the `libgazebo_ros2_control.so` library. This plugin takes 2 parameters in the same way as the ControllerManager before, which are the [`scara_controllers.yaml`](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/config/scara_controllers.yaml) configuration file and the name of the node that published the `robot_description` topic, which is by default done by the `robot_state_publisher` node. The `gazebo` tags are also used to add additional gazebo parameters to already defined objects. Here we use them to fix the robot to a static world frame and to add a color to each link. 
 
-This description file can then be added to the [`scara.config.xacro`](../scara_description/config/scara.config.xacro) by adding:
+This description file can then be added to the [`scara.config.xacro`](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/config/scara.config.xacro) by adding:
 ``` xml
 <!-- Import all Gazebo-customization elements -->
 <xacro:include filename="$(find scara_description)/gazebo/scara.gazebo.xacro"/>
 ```
 
 ## Adding the Gazebo ros2_control Hardware Interface
-Now that the ros2_control plugin was added to the description, we also need to specify the ros2_control Hardware Interface that needs to be used to link the Gazebo hardware with ros2_control. To do so we just need to specify the `GazeboSystem` hardware interface plugin in the ros2_control urdf description [file](../scara_description/ros2_control/scara.ros2_control.urdf) as follows:
+Now that the ros2_control plugin was added to the description, we also need to specify the ros2_control Hardware Interface that needs to be used to link the Gazebo hardware with ros2_control. To do so we just need to specify the `GazeboSystem` hardware interface plugin in the ros2_control urdf description [file](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/ros2_control/scara.ros2_control.urdf) as follows:
 ```xml
 <?xml version="1.0"?>
 <robot name = "scara" xmlns:xacro="http://www.ros.org/wiki/xacro">

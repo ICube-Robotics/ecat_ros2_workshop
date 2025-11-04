@@ -4,7 +4,7 @@ The URDF file is a standard XML based file used to describe characteristic of a 
 A good practice in ROS2 is to specify the description of the used robot in a dedicated package. In this tutorial, the package is named in a standard way `scara_description`. In this package you can find different folders containing the configuration of the used system for different ROS2 components. 
 
 ## Global URDF description using Xacro
-In order to simplify the setup of the robot we often build the robot URDF description using `xacro`. Xacro (XML Macros) is an XML macro language. With xacro, you can construct shorter and more readable XML files by using macros that expand to larger XML expressions. Using xacro allows to include smaller segments of the system description for better readability. For example, in the case of the scara robot, the global URDF is defined using the [scara.config.xacro](../scara_description/config/scara.config.xacro) file, formatted as follows: 
+In order to simplify the setup of the robot we often build the robot URDF description using `xacro`. Xacro (XML Macros) is an XML macro language. With xacro, you can construct shorter and more readable XML files by using macros that expand to larger XML expressions. Using xacro allows to include smaller segments of the system description for better readability. For example, in the case of the scara robot, the global URDF is defined using the [scara.config.xacro](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/config/scara.config.xacro) file, formatted as follows: 
 ```xml 
 <?xml version="1.0"?>
 <!-- Scara manipulator -->
@@ -29,7 +29,7 @@ In the next sections, let's focus more in details on the included description fi
 
 ## Geometry and Dynamics
 
-In this section, let's focus on the [`scara.urdf`](../scara_description/urdf/scara.urdf) description file. The URDF file describes in details the geometry of the robot as well as some additional parameters such as its visual and collision meshes, dynamics and others. 
+In this section, let's focus on the [`scara.urdf`](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/urdf/scara.urdf) description file. The URDF file describes in details the geometry of the robot as well as some additional parameters such as its visual and collision meshes, dynamics and others. 
 
 Let's create a robot description for a scara robot with the following structure:
 
@@ -163,4 +163,4 @@ In this xml description:
 
 The hardware interface that can be loaded here as a plugin is dependant of the type of robot that is controlled and its control mode. It is an interface between ros2_control and the robot driver. For robots that support ros2_control, the interface is often given either by the manufacturer or the community. A non exhaustive list of available hardware interfaces can be found [here](https://control.ros.org/master/doc/supported_robots/supported_robots.html). 
 
-At this point you can either go further to the next [section on how to launch and interact with the current system](launch_tutorial.md). In the case where the hardware interface that you want to use is not already available, you can go to the [section on how to develop a custom one](hardware_tutorial.md). 
+At this point you can either go further to the next [section on how to launch and interact with the current system](launch_tutorial.md). In the case where the hardware interface that you want to use is not already available, you can go to the [section on how to develop a custom one](hardware_tutorial.md).

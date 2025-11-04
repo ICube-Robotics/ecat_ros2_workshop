@@ -4,7 +4,7 @@ In the case if the hardware interface is not available or not suited for the des
 
 In ros2_control, hardware system components are integrated via user defined driver plugins that conform to the `HarwareInterface` public interface. Hardware plugins specified in the URDF are dynamically loaded during initialization using the `pluginlib` interface. More information about creating and using plugins can be found [here](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Pluginlib.html).
 
-For the purpose of this tutorial, let's create the custom interface plugin `ScaraRobot` that will be used to simulate a scara robot. We want the simulated system to be controlled in joint position and provide information about its current position and velocity, as described in the ros2_control description [file](../scara_description/ros2_control/scara.ros2_control.urdf).  
+For the purpose of this tutorial, let's create the custom interface plugin `ScaraRobot` that will be used to simulate a scara robot. We want the simulated system to be controlled in joint position and provide information about its current position and velocity, as described in the ros2_control description [file](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/ros2_control/scara.ros2_control.urdf).  
 
 To do so, in the `scara_hardware` package, let's first define the hardware plugin called `ScaraRobot` that inherits from  `hardware_interface::SystemInterface`. The `SystemInterface` is one of the offered hardware interfaces designed for a complete robot system. For example, The UR5 uses this interface. The `ScaraRobot` must implement five public methods:
 1. `on_init`
@@ -13,7 +13,7 @@ To do so, in the `scara_hardware` package, let's first define the hardware plugi
 4. `read`
 5. `write`
 
-These methods are defined in the [scara_robot.hpp](../scara_hardware/include/scara_hardware/scara_robot.hpp) header file as follows: 
+These methods are defined in the [scara_robot.hpp](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_hardware/include/scara_hardware/scara_robot.hpp) header file as follows: 
 
 ```c++
 using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;

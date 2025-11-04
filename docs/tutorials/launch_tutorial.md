@@ -17,7 +17,7 @@ controller_manager:
 ```
 In the controller configuration file, the `update_rate` parameter allows to set the update rate of the `ControllerManager` node. In addition, the desired controllers that we plan to run need to be referenced and set up. 
 
-In the example of the scara robot, the configuration [file](../scara_description/config/scara_controllers.yaml) is the following:  
+In the example of the scara robot, the configuration [file](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/config/scara_controllers.yaml) is the following:  
 ```yaml
 controller_manager:
   ros__parameters:
@@ -48,7 +48,7 @@ Now that we have the robot URDF description and the configuration for the Contro
 
 ## Creating a launch file
 
-In the [`scara.launch.py`](../scara_bringup/launch/scara.launch.py) file, we first need to load the robot description from URDF. As we use XACRO, the global description file [`scara.config.xacro`](../scara_description/config/scara.config.xacro) of the robot needs to be evaluated first, what can be achieved as follows:
+In the [`scara.launch.py`](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_bringup/launch/scara.launch.py) file, we first need to load the robot description from URDF. As we use XACRO, the global description file [`scara.config.xacro`](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/config/scara.config.xacro) of the robot needs to be evaluated first, what can be achieved as follows:
 ```python
 robot_description_content = Command([
     PathJoinSubstitution([FindExecutable(name='xacro')]),
@@ -117,7 +117,7 @@ This shows, as expected from the robot description, that a position command inte
 ``` shell
 $ ros2 control list_controllers
 ```
-It will give you and empty output. In this case, let's load the `joint_state_broadcaster`. To do so, run in your terminal:
+it will give you and empty output. In this case, let's load the `joint_state_broadcaster`. To do so, run in your terminal:
 ```shell
 $ ros2 control load_controller joint_state_broadcaster --set-state active
 ```
@@ -240,4 +240,4 @@ controller_spawner = Node(
     )
 ```
 
-Some additional information about available controllers can be found [here](https://control.ros.org/master/doc/ros2_controllers/doc/controllers_index.html). If, however, for the purpose of your applications you need a custom controller, you can go to the [section on how to develop one](controller_tutorial.md). 
+Some additional information about available controllers can be found [here](https://control.ros.org/master/doc/ros2_controllers/doc/controllers_index.html). If, however, for the purpose of your applications you need a custom controller, you can go to the [section on how to develop one](controller_tutorial.md).
