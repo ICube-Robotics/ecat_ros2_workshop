@@ -17,9 +17,6 @@ controller_manager:
     gpio_reset_controller:
       type: gpio_controllers/GpioCommandController
 
-    gpio_safety_controller:
-      type: gpio_controllers/GpioCommandController
-
 
 scara_trajectory_controller:
   ros__parameters:
