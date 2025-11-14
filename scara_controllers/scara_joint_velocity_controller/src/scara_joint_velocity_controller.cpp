@@ -68,6 +68,7 @@ CallbackReturn ScaraJointVelocityController::on_configure(
     "~/joint_velocity", rclcpp::SystemDefaultsQoS(),
     [this](const CmdType::SharedPtr msg) {rt_command_ptr_.writeFromNonRT(msg);});
 
+  motor_motion_enabled_ = false;  
   RCLCPP_INFO(get_node()->get_logger(), "configure successful");
   return CallbackReturn::SUCCESS;
 }
@@ -186,10 +187,21 @@ controller_interface::return_type ScaraJointVelocityController::update(
   for(auto j = 0ul; j < joint_names_.size(); j++){
     double q = state_interfaces_[j].get_value();
     double vq = (*joint_velocity)->data[j];
+    double command = 0;
 
-    double command = q + vq*(period.nanoseconds()*1e-9);
-    
-    command_interfaces_[j].set_value(command);
+    if ( vq > 0.0 || vq < 0.0 ) {
+      motor_motion_enabled_ = true;
+      command = q + vq*(period.nanoseconds()*1e-9);
+      RCLCPP_INFO(get_node()->get_logger(), "command: %f, period: %f, vq: %f", command, period.nanoseconds()*1e-9, vq);
+      command_interfaces_[j].set_value(command);
+    }
+    else if ( motor_motion_enabled_ ) {
+      // stop the motor motion when the command velocity is zero
+      motor_motion_enabled_ = false;
+      command = q;
+      command_interfaces_[j].set_value(command);
+      RCLCPP_INFO(get_node()->get_logger(), "Motor motion stopped at position: %f", command);
+    }
   }
 
   return controller_interface::return_type::OK;

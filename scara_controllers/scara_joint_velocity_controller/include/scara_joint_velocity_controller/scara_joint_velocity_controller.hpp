@@ -78,6 +78,8 @@ protected:
 
   std::string logger_name_;
 
+  bool motor_motion_enabled_;
+
 };
 
 }  // namespace scara_joint_velocity_controller
