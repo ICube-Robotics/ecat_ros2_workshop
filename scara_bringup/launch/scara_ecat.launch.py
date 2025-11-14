@@ -87,16 +87,6 @@ def generate_launch_description():
         arguments=['gpio_reset_controller']  # start inactive
     )
 
-    # =============================
-    # == GPIO Safety Controller ==
-    # =============================
-
-    gpio_safety_controller_spawner = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=['gpio_safety_controller']  # start inactive
-    )
-
 
     slider_config = PathJoinSubstitution(
         [
@@ -120,7 +110,6 @@ def generate_launch_description():
         joint_state_broadcaster_spawner,
         robot_controller_spawner,
         gpio_reset_controller_spawner,
-        gpio_safety_controller_spawner,
         slider_node,
     ]
 
