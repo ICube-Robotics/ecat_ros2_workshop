@@ -33,53 +33,12 @@ CIA 402 (CANopen device profile for drives and motion control) is a standardized
 - **Fault handling** with automatic or manual reset
 - **Safe default behavior** to prevent unwanted movements
 
-## Prerequisites
-
-### System Requirements
-
-- **ROS 2** (Jazzy or compatible distribution)
-- **Linux with PREEMPT_RT kernel** (recommended for real-time performance)
-- **IgH EtherCAT Master** installed and configured
-- **Root privileges** or proper user permissions for EtherCAT access
-
-### Knowledge Requirements
-
-- Basic understanding of ROS 2 and ros2_control
-- Familiarity with URDF and YAML configuration files
-- Understanding of EtherCAT concepts (PDO, SDO, etc.)
-
 ## Installation
 
 ### 1. Install IgH EtherCAT Master
+Follow installation steps [here](https://icube-robotics.github.io/ethercat_driver_ros2/quickstart/installation.html)
 
-First, install the IgH EtherCAT Master:
-
-```bash
-# Clone the repository
-git clone https://gitlab.com/etherlab.org/ethercat.git
-cd ethercat
-
-# Configure and build
-./bootstrap
-./configure --prefix=/opt/etherlab --disable-8139too --enable-generic
-make
-sudo make install
-
-# Configure the system
-sudo ln -s /opt/etherlab/etc/init.d/ethercat /etc/init.d/ethercat
-sudo mkdir -p /etc/sysconfig
-sudo cp /opt/etherlab/etc/sysconfig/ethercat /etc/sysconfig/
-```
-
-Edit `/etc/sysconfig/ethercat` to configure your network interface:
-
-```bash
-sudo nano /etc/sysconfig/ethercat
-```
-
-Set the `MASTER0_DEVICE` to your Ethernet MAC address.
-
-### 2. Install ethercat_driver_ros2
+### 2a. Install ethercat_driver_ros2 
 
 Create a ROS 2 workspace and clone the repository:
 
@@ -102,16 +61,48 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release
 source install/setup.bash
 ```
 
-### 3. Configure User Permissions
+### 2b. Using Docker
+Provides a basic preconfigured docker container for tutorial purposes.
 
-Add your user to the ethercat group:
+To use it, make sure you have [Docker](https://docs.docker.com/get-docker/) installed, then run the image :
 
-```bash
-sudo usermod -a -G ethercat $USER
+```shell
+$ docker run --device=/dev/EtherCAT0:/dev/EtherCAT0 mc3ed/ecat_ros2_workshop:jazzy ros2 launch scara_bringup scara_ecat.launch.py
 ```
 
-!!! warning
-    Log out and log back in for the changes to take effect.
+### Run with GUI
+To run the docker image with GUI, use the [rocker tool](https://github.com/osrf/rocker):
+```shell
+$ sudo apt install python3-rocker
+$ rocker --net=host --x11 --devices /dev/dri --device=/dev/EtherCAT0:/dev/EtherCAT0 --user mc3ed/ecat_ros2_workshop:jazzy ros2 launch scara_bringup scara_ecat.launch.py
+```
+
+### Run with noVNC
+To run the docker image with noVNC, run the novnc docker :
+```shell
+$ docker run --rm -p 6080:6080 --device=/dev/EtherCAT0:/dev/EtherCAT0 -it mc3ed/ecat_ros2_workshop:jazzy_novnc
+```
+Then open your browser and navigate to `http://localhost:6080/vnc.html` to access the desktop environment. Inside the noVNC session, you can open a terminal and run:
+```shell
+$ cd ros2_dev/ecat_ros2_workshop/
+$ source install/setup.bash
+$ ros2 launch scara_bringup scara.launch.py
+```
+
+**Note for Intel integrated graphics:** The `--devices /dev/dri` flag is required to mount the Direct Rendering Infrastructure, which enables hardware-accelerated graphics for rviz2.
+
+### Run with bash
+To interact with the environment, run docker using:
+```shell
+$ docker run -it mc3ed/ecat_ros2_workshop:jazzy
+```
+and inside docker run:
+```shell
+$ cd ros2_dev/ecat_ros2_workshop/
+$ source install/setup.bash
+$ ros2 launch scara_bringup scara.launch.py
+```
+The `ecat_ros2_workshop` nodes should now be running.
 
 ## Understanding CIA 402 Drives
 
