@@ -4,5 +4,6 @@ set -e
 # setup ros environment
 # export ROS_LOCALHOST_ONLY=1
 source "/opt/ros/$ROS_DISTRO/setup.bash"
+source "/ros2_dev/ethercat_driver_ros2/install/setup.bash"
 source "/ros2_dev/ecat_ros2_workshop/install/setup.bash"
 exec "$@"
