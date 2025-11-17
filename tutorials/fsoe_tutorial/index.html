@@ -1297,8 +1297,8 @@
 <p>FSoE is <strong>TÜV-certified</strong> and complies with international standards such as <strong>IEC 61508</strong> and <strong>IEC 61784-3</strong>. It is maintained as an open technology by the <strong>EtherCAT Technology Group (ETG)</strong>.</p>
 <hr>
 <h2 id="fsoe-basics-and-frame-structure">FSoE Basics and Frame Structure</h2>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_frame.png?raw=true" data-desc-position="bottom"><img alt="FSoE Frame Structure" src="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_frame.png?raw=true"></a>
-<em>Caption: Illustration of the FSoE frame structure, showing how safety data (Safe Data, CMD, CRCs, Connection ID) is embedded within standard EtherCAT frames to ensure integrity and reliability.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_frame.png?raw=true" data-desc-position="bottom"><img alt="FSoE Frame Structure" src="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_frame.png?raw=true"></a></p>
+<p><em>Caption: Illustration of the FSoE frame structure, showing how safety data (Safe Data, CMD, CRCs, Connection ID) is embedded within standard EtherCAT frames to ensure integrity and reliability.</em></p>
 <p>FSoE embeds safety data within standard EtherCAT frames, adding integrity information such as <strong>Cyclic Redundancy Checks (CRC)</strong>, <strong>watchdog timers</strong>, and <strong>connection IDs</strong>. Each FSoE frame includes:</p>
 <ul>
 <li><strong>Command (CMD)</strong>: Specifies the type of safety command.</li>
@@ -1312,8 +1312,8 @@
 <p>FSoE supports multiple network topologies, each with unique advantages and use cases.</p>
 <hr>
 <h3 id="centralized-approach">Centralized Approach</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_centralized.png?raw=true" data-desc-position="bottom"><img alt="Centralized FSoE Topology" src="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_centralized.png?raw=true"></a>
-<em>Caption: Diagram of a centralized FSoE topology, where the FSoE Master is integrated into the EtherCAT Master device.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_centralized.png?raw=true" data-desc-position="bottom"><img alt="Centralized FSoE Topology" src="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_centralized.png?raw=true"></a></p>
+<p><em>Caption: Diagram of a centralized FSoE topology, where the FSoE Master is integrated into the EtherCAT Master device.</em></p>
 <p>In a <strong>centralized approach</strong>, the <strong>FSoE Master</strong> is integrated into the <strong>EtherCAT Master device</strong>. This simplifies the system architecture by eliminating the need for SubDevice-to-SubDevice communication. However, the EtherCAT Master device must be <strong>safety-certified</strong>, which can increase costs and complexity.</p>
 <p><strong>Advantages:</strong>
 - Simplified configuration.
@@ -1325,8 +1325,8 @@
 The centralized approach is <strong>not currently implemented</strong> in the <code>ethercat_driver_ros2</code> package.</p>
 <hr>
 <h3 id="decentralized-safety-logic">Decentralized Safety Logic</h3>
-<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_decentralized.png?raw=true" data-desc-position="bottom"><img alt="Decentralized FSoE Topology" src="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_decentralized.png?raw=true"></a>
-<em>Caption: Diagram of a decentralized FSoE topology, showing the FSoE MainInstance on a separate SubDevice and its communication with other SubInstances.</em></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_decentralized.png?raw=true" data-desc-position="bottom"><img alt="Decentralized FSoE Topology" src="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_decentralized.png?raw=true"></a></p>
+<p><em>Caption: Diagram of a decentralized FSoE topology, showing the FSoE MainInstance on a separate SubDevice and its communication with other SubInstances.</em></p>
 <p>In a <strong>decentralized approach</strong>, the <strong>FSoE MainInstance</strong> runs on a <strong>separate EtherCAT SubDevice</strong>. This allows the EtherCAT Master device to remain <strong>non-certified</strong>, simplifying design and reducing costs. Multiple <strong>FSoE SubInstances</strong> (e.g., safe I/O modules, drives) communicate with the FSoE MainInstance via the EtherCAT Master device.</p>
 <p><strong>Advantages:</strong>
 - No certification required for the EtherCAT Master device.
