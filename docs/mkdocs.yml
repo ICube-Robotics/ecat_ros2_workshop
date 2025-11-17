@@ -92,5 +92,6 @@ nav:
     - Controller Development: tutorials/controller_tutorial.md
     - Gazebo Simulation: tutorials/gazebo_tutorial.md
     - EtherCAT Integration: tutorials/ethercat_tutorial.md
+    - FSoE Safety Protocol: tutorials/fsoe_tutorial.md
   - About:
     - Contacts: about/contacts.md
