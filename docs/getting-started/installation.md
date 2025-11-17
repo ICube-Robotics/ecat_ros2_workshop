@@ -10,6 +10,28 @@ This guide will walk you through setting up the SCARA ROS2 EtherCAT Workshop on 
     - **Disk Space**: ~5 GB free space
     - **Memory**: 4 GB RAM minimum (8 GB recommended)
 
+
+## Prerequisites: EtherCAT Master and Driver
+
+Before building the workshop, you must install:
+
+- **IgH EtherLab EtherCAT Master** (required for real EtherCAT hardware)
+- **ethercat_driver_ros2** (ROS 2 EtherCAT driver stack)
+
+Follow the [EtherCAT Tutorial](../tutorials/ethercat_tutorial.md) for detailed instructions, or use the summary below:
+
+### 0. Install IgH EtherCAT Master
+
+Follow the official guide: [IgH EtherCAT Master Installation](https://icube-robotics.github.io/ethercat_driver_ros2/quickstart/installation.html)
+
+### 1. Install ethercat_driver_ros2
+
+You can build it from source in your ROS 2 workspace, or use the prebuilt Docker image (see [Docker setup](docker.md)).
+
+For source build, see the [EtherCAT Tutorial](../tutorials/ethercat_tutorial.md#installation) for step-by-step instructions.
+
+---
+
 ## Step-by-Step Installation
 
 ### 1. Install ROS2 Jazzy

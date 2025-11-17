@@ -268,6 +268,16 @@ docker system prune -a
 | **Rocker** | Native performance, hardware acceleration | Requires X11 setup | Local development |
 | **noVNC** | Works anywhere, no X11 needed | Slight latency | Remote access, web-based |
 
+## Docker Images Availability
+
+Prebuilt Docker images for this workshop are available on Docker Hub with the prefix `mc3ed/`. For example:
+
+```
+docker pull mc3ed/ecat_ros2_workshop:jazzy
+```
+
+Replace `jazzy` with the desired tag as needed. Use the `mc3ed/` prefix for all images referenced in this documentation.
+
 ## Next Steps
 
 Now that you have Docker set up:
