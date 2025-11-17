@@ -13,6 +13,7 @@ FSoE is **TÜV-certified** and complies with international standards such as **I
 ## FSoE Basics and Frame Structure
 
 ![FSoE Frame Structure](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_frame.png?raw=true)
+
 *Caption: Illustration of the FSoE frame structure, showing how safety data (Safe Data, CMD, CRCs, Connection ID) is embedded within standard EtherCAT frames to ensure integrity and reliability.*
 
 FSoE embeds safety data within standard EtherCAT frames, adding integrity information such as **Cyclic Redundancy Checks (CRC)**, **watchdog timers**, and **connection IDs**. Each FSoE frame includes:
@@ -35,6 +36,7 @@ FSoE supports multiple network topologies, each with unique advantages and use c
 ### Centralized Approach
 
 ![Centralized FSoE Topology](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_centralized.png?raw=true)
+
 *Caption: Diagram of a centralized FSoE topology, where the FSoE Master is integrated into the EtherCAT Master device.*
 
 In a **centralized approach**, the **FSoE Master** is integrated into the **EtherCAT Master device**. This simplifies the system architecture by eliminating the need for SubDevice-to-SubDevice communication. However, the EtherCAT Master device must be **safety-certified**, which can increase costs and complexity.
@@ -55,6 +57,7 @@ The centralized approach is **not currently implemented** in the `ethercat_drive
 ### Decentralized Safety Logic
 
 ![Decentralized FSoE Topology](https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/resources/fsoe_arch_decentralized.png?raw=true)
+
 *Caption: Diagram of a decentralized FSoE topology, showing the FSoE MainInstance on a separate SubDevice and its communication with other SubInstances.*
 
 In a **decentralized approach**, the **FSoE MainInstance** runs on a **separate EtherCAT SubDevice**. This allows the EtherCAT Master device to remain **non-certified**, simplifying design and reducing costs. Multiple **FSoE SubInstances** (e.g., safe I/O modules, drives) communicate with the FSoE MainInstance via the EtherCAT Master device.
