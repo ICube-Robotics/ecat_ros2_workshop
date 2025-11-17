@@ -62,6 +62,14 @@ This workshop covers the following topics:
 
     [:octicons-arrow-right-24: EtherCAT Tutorial](tutorials/ethercat_tutorial.md)
 
+-   :material-shield-lock: **FSoE Safety Integration**
+
+    ---
+
+    Integrate FailSafe over EtherCAT (FSoE) for enhanced safety in your robotic system.
+
+    [:octicons-arrow-right-24: FSoE Tutorial](https://icube-robotics.github.io/ecat_ros2_workshop/tutorials/fsoe_tutorial/)
+
 </div>
 
 ## Prerequisites
