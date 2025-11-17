@@ -9,13 +9,13 @@
         <meta name="author" content="ICube Laboratory &amp; Asterion Robotics">
       
       
-        <link rel="canonical" href="https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/gazebo_tutorial/">
+        <link rel="canonical" href="https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/fsoe_tutorial/">
       
       
-        <link rel="prev" href="../controller_tutorial/">
+        <link rel="prev" href="../ethercat_tutorial/">
       
       
-        <link rel="next" href="../ethercat_tutorial/">
+        <link rel="next" href="../../about/contacts/">
       
       
         
@@ -26,7 +26,7 @@
     
     
       
-        <title>Gazebo Simulation - SCARA ROS2 EtherCAT Workshop</title>
+        <title>FSoE Safety Protocol - SCARA ROS2 EtherCAT Workshop</title>
       
     
     
@@ -87,7 +87,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#setting-up-the-scara-manipulator-to-run-with-ros2_control-and-gazebo" class="md-skip">
+        <a href="#fsoe-fail-safe-over-ethercat-safety-in-industrial-communication" class="md-skip">
           Skip to content
         </a>
       
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gazebo Simulation
+              FSoE Safety Protocol
             
           </span>
         </div>
@@ -729,37 +729,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Gazebo Simulation
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../gazebo_tutorial/" class="md-nav__link">
         
   
   
@@ -775,59 +748,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#adding-the-gazebo-description-to-the-urdf" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding the Gazebo description to the URDF
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#adding-the-gazebo-ros2_control-hardware-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Adding the Gazebo ros2_control Hardware Interface
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#launching-gazebo-with-ros2_control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Launching Gazebo with ros2_control
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -865,10 +785,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../fsoe_tutorial/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FSoE Safety Protocol
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -884,6 +831,170 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-fsoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction to FSoE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fsoe-basics-and-frame-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSoE Basics and Frame Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#network-topologies-with-fsoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Topologies with FSoE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Topologies with FSoE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centralized-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Centralized Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decentralized-safety-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decentralized Safety Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-mechanism-in-fsoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Mechanism in FSoE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Mechanism in FSoE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#copy-infos-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy Infos Configuration File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-of-maindevice-software-ethercat_driver_ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role of MainDevice Software (ethercat_driver_ros2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-cycle-in-decentralized-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety Cycle in Decentralized Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages-and-use-cases-of-decentralized-fsoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages and Use Cases of Decentralized FSoE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-of-fsoe-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration of FSoE Devices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1016,10 +1127,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#adding-the-gazebo-description-to-the-urdf" class="md-nav__link">
+  <a href="#introduction-to-fsoe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding the Gazebo description to the URDF
+        Introduction to FSoE
       
     </span>
   </a>
@@ -1027,10 +1138,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#adding-the-gazebo-ros2_control-hardware-interface" class="md-nav__link">
+  <a href="#fsoe-basics-and-frame-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adding the Gazebo ros2_control Hardware Interface
+        FSoE Basics and Frame Structure
       
     </span>
   </a>
@@ -1038,10 +1149,121 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#launching-gazebo-with-ros2_control" class="md-nav__link">
+  <a href="#network-topologies-with-fsoe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Launching Gazebo with ros2_control
+        Network Topologies with FSoE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network Topologies with FSoE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centralized-approach" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Centralized Approach
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decentralized-safety-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Decentralized Safety Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication-mechanism-in-fsoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication Mechanism in FSoE
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication Mechanism in FSoE">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#copy-infos-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Copy Infos Configuration File
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#role-of-maindevice-software-ethercat_driver_ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Role of MainDevice Software (ethercat_driver_ros2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#safety-cycle-in-decentralized-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Safety Cycle in Decentralized Mode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages-and-use-cases-of-decentralized-fsoe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages and Use Cases of Decentralized FSoE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-of-fsoe-devices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration of FSoE Devices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
       
     </span>
   </a>
@@ -1068,84 +1290,101 @@
   
 
 
-<h1 id="setting-up-the-scara-manipulator-to-run-with-ros2_control-and-gazebo">Setting up the SCARA manipulator to run with ros2_control and Gazebo</h1>
-<p>Whereas using simulated hardware is very important to test the kinematic properties of the robot, in many application the use of robot dynamics and interactions with the environment is required. The <a href="https://gazebosim.org/home">Gazebo</a> simulator is often used in ROS2 projects as it easy to combine ROS2 with Gazebo. Also, ros2_control has specific Hardware Interfaces that allow to simulate a hardware inside Gazebo while using controllers in the ros2_control framework. </p>
-<p>In this section of the tutorial, we will focus on how to simulate the SCARA robot in Gazebo with ros2_control and how to interact with it. </p>
-<h2 id="adding-the-gazebo-description-to-the-urdf">Adding the Gazebo description to the URDF</h2>
-<p>In order to use ros2_control with Gazebo, some additional setup steps are required in the robot description. In fact, Gazebo allows to implement Gazebo plugins to interact with the simulation, what is used to create a bridge between Gazebo and ros2_control. The <code>gazebo_ros2_control</code> plugin is used for this reason. In contrary to the previous steps where the Controller Manager was acting as a standalone ROS2 node, in this case the <code>gazebo_ros2_control</code> plugin is responsible of running an instance of the Controller Manager inside the Gazebo node.   </p>
-<p>This can be done by adding a <a href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/gazebo/scara.gazebo.xacro"><code>scara.gazebo.xacro</code></a> configuration file in the <code>scara_description</code> package, that contains:</p>
-<p></p><div class="language-xml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">&lt;?xml version="1.0"?&gt;</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">"http://www.ros.org/wiki/xacro"</span><span class="w"> </span><span class="na">name=</span><span class="s">"scara"</span><span class="nt">&gt;</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="cm">&lt;!-- ros_control plugin --&gt;</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&lt;gazebo&gt;</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"libgazebo_ros2_control.so"</span><span class="w"> </span><span class="na">name=</span><span class="s">"gazebo_ros2_control"</span><span class="nt">&gt;</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">&lt;parameters&gt;</span>$(find<span class="w"> </span>scara_description)/config/scara_controllers.yaml<span class="nt">&lt;/parameters&gt;</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nt">&lt;robot_param_node&gt;</span>robot_state_publisher<span class="nt">&lt;/robot_param_node&gt;</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">      </span><span class="nt">&lt;/plugin&gt;</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="nt">&lt;/gazebo&gt;</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="cm">&lt;!-- Used for fixing robot --&gt;</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="nt">&lt;gazebo</span><span class="w"> </span><span class="na">reference=</span><span class="s">"world"</span><span class="nt">&gt;</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="nt">&lt;static&gt;</span>true<span class="nt">&lt;/static&gt;</span>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="nt">&lt;/gazebo&gt;</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="cm">&lt;!-- color --&gt;</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="nt">&lt;gazebo</span><span class="w"> </span><span class="na">reference=</span><span class="s">"base_link"</span><span class="nt">&gt;</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">      </span><span class="nt">&lt;material&gt;</span>Gazebo/Blue<span class="nt">&lt;/material&gt;</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">&lt;/gazebo&gt;</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="cm">&lt;!-- materials for other links --&gt;</span>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="nt">&lt;/robot&gt;</span>
-</span></code></pre></div>
-In this description file, the <code>gazebo</code> tags are used to specify parameters to be used by Gazebo and in particular the <code>plugin</code> that needs to be loaded. The plugin here is the <code>gazebo_ros2_control</code> plugin contained in the <code>libgazebo_ros2_control.so</code> library. This plugin takes 2 parameters in the same way as the ControllerManager before, which are the <a href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/config/scara_controllers.yaml"><code>scara_controllers.yaml</code></a> configuration file and the name of the node that published the <code>robot_description</code> topic, which is by default done by the <code>robot_state_publisher</code> node. The <code>gazebo</code> tags are also used to add additional gazebo parameters to already defined objects. Here we use them to fix the robot to a static world frame and to add a color to each link. <p></p>
-<p>This description file can then be added to the <a href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/config/scara.config.xacro"><code>scara.config.xacro</code></a> by adding:
-</p><div class="language-xml highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">&lt;!-- Import all Gazebo-customization elements --&gt;</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nt">&lt;xacro:include</span><span class="w"> </span><span class="na">filename=</span><span class="s">"$(find scara_description)/gazebo/scara.gazebo.xacro"</span><span class="nt">/&gt;</span>
-</span></code></pre></div><p></p>
-<h2 id="adding-the-gazebo-ros2_control-hardware-interface">Adding the Gazebo ros2_control Hardware Interface</h2>
-<p>Now that the ros2_control plugin was added to the description, we also need to specify the ros2_control Hardware Interface that needs to be used to link the Gazebo hardware with ros2_control. To do so we just need to specify the <code>GazeboSystem</code> hardware interface plugin in the ros2_control urdf description <a href="https://github.com/ICube-Robotics/ecat_ros2_workshop/blob/main/scara_description/ros2_control/scara.ros2_control.urdf">file</a> as follows:
-</p><div class="language-xml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cp">&lt;?xml version="1.0"?&gt;</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">&lt;robot</span><span class="w"> </span><span class="na">name =</span><span class="w"> </span><span class="s">"scara"</span><span class="w"> </span><span class="na">xmlns:xacro=</span><span class="s">"http://www.ros.org/wiki/xacro"</span><span class="nt">&gt;</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&lt;ros2_control</span><span class="w"> </span><span class="na">name=</span><span class="s">"scara"</span><span class="w"> </span><span class="na">type=</span><span class="s">"system"</span><span class="nt">&gt;</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">        </span><span class="nt">&lt;hardware&gt;</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">            </span><span class="nt">&lt;plugin&gt;</span>gazebo_ros2_control/GazeboSystem<span class="nt">&lt;/plugin&gt;</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nt">&lt;/hardware&gt;</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="cm">&lt;!-- joints, gpios, sensors --&gt;</span>
-</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="nt">&lt;/ros2_control&gt;</span>
-</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nt">&lt;/robot&gt;</span>
-</span></code></pre></div><p></p>
-<h2 id="launching-gazebo-with-ros2_control">Launching Gazebo with ros2_control</h2>
-<p>Once the description is complete, we need to modify the launch file so that it can launch Gazebo and spawn the robot from the URDF description. </p>
-<p>The Gazebo node has its own launch file that can be included in our launch file as follows: 
-</p><div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">gazebo</span> <span class="o">=</span> <span class="n">IncludeLaunchDescription</span><span class="p">(</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="n">PythonLaunchDescriptionSource</span><span class="p">(</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>        <span class="p">[</span><span class="n">PathJoinSubstitution</span><span class="p">(</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>            <span class="p">[</span><span class="n">FindPackageShare</span><span class="p">(</span><span class="s1">'gazebo_ros'</span><span class="p">),</span>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>                <span class="s1">'launch'</span><span class="p">,</span> <span class="s1">'gazebo.launch.py'</span><span class="p">]</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="p">)]</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="p">),</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    <span class="n">launch_arguments</span><span class="o">=</span><span class="p">{</span><span class="s1">'verbose'</span><span class="p">:</span> <span class="s1">'false'</span><span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">)</span>
-</span></code></pre></div><p></p>
-<p>To spawn the robot from its description to Gazebo a dedicated spawner node is available and can be called as follows:<br>
-</p><div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">spawn_entity</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="n">package</span><span class="o">=</span><span class="s1">'gazebo_ros'</span><span class="p">,</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">executable</span><span class="o">=</span><span class="s1">'spawn_entity.py'</span><span class="p">,</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s1">'-topic'</span><span class="p">,</span> <span class="n">robot_description</span><span class="p">,</span> <span class="s1">'-entity'</span><span class="p">,</span> <span class="s1">'scara'</span><span class="p">],</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="n">output</span><span class="o">=</span><span class="s1">'screen'</span><span class="p">,</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">)</span>
-</span></code></pre></div>
-The arguments that are given here are:
-* The <code>topic</code> parameter, specifying the topic name in which the robot description is published. This topic is usually published by the <code>robot_state_publisher</code> node.
-* The <code>entity</code> parameter, specifying the name of the robot to be spawned as given in the URDF description.<p></p>
-<p>See the <a href="../scara_bringup/launch/scara_gazebo.launch.py"><code>scara_gazebo.launch.py</code></a> file for the complete launch file.</p>
-<p>Notice that because the Controller Manager is already running inside the Gazebo node, it will not be launched here. </p>
-<p>You can now run the launch file using: 
-</p><div class="language-shell highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>$<span class="w"> </span>ros2<span class="w"> </span>launch<span class="w"> </span>scara_bringup<span class="w"> </span>scara_gazebo.launch.py<span class="w"> </span>
-</span></code></pre></div>
-You should have Gazebo displaying the scara robot running as a Gazebo ros2_control hardware
-<a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../images/scara_gazebo.png" data-desc-position="bottom"><img alt="scara gazebo" src="../../images/scara_gazebo.png"></a><p></p>
-<p>You can now load and interact with it as explained in the previous <a href="../launch_tutorial/">section</a>.</p>
+<h1 id="fsoe-fail-safe-over-ethercat-safety-in-industrial-communication">FSoE (Fail-Safe over EtherCAT): Safety in Industrial Communication</h1>
+<hr>
+<h2 id="introduction-to-fsoe">Introduction to FSoE</h2>
+<p><strong>Fail-Safe over EtherCAT (FSoE)</strong> is a safety protocol designed to enable the transmission of <strong>safety-critical data</strong> alongside standard process data on the same EtherCAT network. FSoE leverages the <strong>Black Channel principle</strong>, ensuring that safety is managed at the protocol level rather than the physical medium. This approach allows EtherCAT networks to achieve <strong>SIL 3 (Safety Integrity Level 3)</strong>, making it suitable for applications where human safety is critical, such as robotics, industrial automation, and medical devices.</p>
+<p>FSoE is <strong>TÜV-certified</strong> and complies with international standards such as <strong>IEC 61508</strong> and <strong>IEC 61784-3</strong>. It is maintained as an open technology by the <strong>EtherCAT Technology Group (ETG)</strong>.</p>
+<hr>
+<h2 id="fsoe-basics-and-frame-structure">FSoE Basics and Frame Structure</h2>
+<p><strong>[IMAGE PLACEHOLDER: FSoE Basics and Frame Structure]</strong>
+<em>Caption: Illustration of the FSoE frame structure, showing how safety data is embedded within standard EtherCAT frames.</em></p>
+<p>FSoE embeds safety data within standard EtherCAT frames, adding integrity information such as <strong>Cyclic Redundancy Checks (CRC)</strong>, <strong>watchdog timers</strong>, and <strong>connection IDs</strong>. Each FSoE frame includes:</p>
+<ul>
+<li><strong>Command (CMD)</strong>: Specifies the type of safety command.</li>
+<li><strong>Safe Data</strong>: Contains safety-related information, such as the status of an emergency stop.</li>
+<li><strong>CRC_0 and CRC_1</strong>: Used to detect errors in the transmitted data.</li>
+<li><strong>Connection ID</strong>: Ensures data is sent to and received from the correct devices.</li>
+</ul>
+<p>The minimum FSoE frame length is <strong>6 bytes</strong>, but there is no strict upper limit on the size of the safe data. Each 2-byte block of safe data is protected by a 2-byte CRC, ensuring robust error detection.</p>
+<hr>
+<h2 id="network-topologies-with-fsoe">Network Topologies with FSoE</h2>
+<p>FSoE supports multiple network topologies, each with unique advantages and use cases.</p>
+<hr>
+<h3 id="centralized-approach">Centralized Approach</h3>
+<p><strong>[IMAGE PLACEHOLDER: Centralized FSoE Topology]</strong>
+<em>Caption: Diagram of a centralized FSoE topology, where the FSoE Master is integrated into the EtherCAT Master device.</em></p>
+<p>In a <strong>centralized approach</strong>, the <strong>FSoE Master</strong> is integrated into the <strong>EtherCAT Master device</strong>. This simplifies the system architecture by eliminating the need for SubDevice-to-SubDevice communication. However, the EtherCAT Master device must be <strong>safety-certified</strong>, which can increase costs and complexity.</p>
+<p><strong>Advantages:</strong>
+- Simplified configuration.
+- Direct control over all safety functions.</p>
+<p><strong>Drawbacks:</strong>
+- The EtherCAT Master device must be safety-certified.
+- Single point of failure.</p>
+<p><strong>Status in <code>ethercat_driver_ros2</code>:</strong>
+The centralized approach is <strong>not currently implemented</strong> in the <code>ethercat_driver_ros2</code> package.</p>
+<hr>
+<h3 id="decentralized-safety-logic">Decentralized Safety Logic</h3>
+<p><strong>[IMAGE PLACEHOLDER: Decentralized FSoE Topology]</strong>
+<em>Caption: Diagram of a decentralized FSoE topology, showing the FSoE MainInstance on a separate SubDevice and its communication with other SubInstances.</em></p>
+<p>In a <strong>decentralized approach</strong>, the <strong>FSoE MainInstance</strong> runs on a <strong>separate EtherCAT SubDevice</strong>. This allows the EtherCAT Master device to remain <strong>non-certified</strong>, simplifying design and reducing costs. Multiple <strong>FSoE SubInstances</strong> (e.g., safe I/O modules, drives) communicate with the FSoE MainInstance via the EtherCAT Master device.</p>
+<p><strong>Advantages:</strong>
+- No certification required for the EtherCAT Master device.
+- Modularity and fault isolation.</p>
+<p><strong>Use Cases:</strong>
+- Safety I/O modules (e.g., emergency stops, safety gates).
+- Safe drives and motion control (e.g., STO, SS1, SS2).
+- Modular machines with distributed safety devices.</p>
+<hr>
+<h2 id="communication-mechanism-in-fsoe">Communication Mechanism in FSoE</h2>
+<p>FSoE ensures reliable transmission of safety data through <strong>logical safety connections</strong> between the <strong>FSoE MainInstance</strong> and <strong>SubInstances</strong>. Safety frames are exchanged via standard EtherCAT process data, and the EtherCAT Master device must support data copying for SubDevice-to-SubDevice communication.</p>
+<hr>
+<h3 id="copy-infos-configuration-file">Copy Infos Configuration File</h3>
+<p><strong>[IMAGE PLACEHOLDER: ENI Configuration Example]</strong>
+<em>Caption: Example of an ENI (EtherCAT Network Information) configuration file, showing how data copying is configured for SubDevice-to-SubDevice communication.</em></p>
+<p>The <strong>ENI (EtherCAT Network Information) file</strong> defines the <strong>source</strong>, <strong>destination</strong>, and <strong>size</strong> of data blocks for SubDevice-to-SubDevice communication. The <code>ethercat_driver_ros2</code> software processes these entries to ensure safety data is routed correctly.</p>
+<hr>
+<h2 id="role-of-maindevice-software-ethercat_driver_ros2">Role of MainDevice Software (<code>ethercat_driver_ros2</code>)</h2>
+<p>The <strong>MainDevice</strong>, running <code>ethercat_driver_ros2</code>, acts as part of the <strong>Black Channel</strong> and does not need to be safety-certified. It facilitates the transmission of safety data by:</p>
+<ul>
+<li>Reading process-data input.</li>
+<li>Performing data copying based on ENI rules.</li>
+<li>Writing process-data output.</li>
+</ul>
+<p>This ensures seamless communication between the <strong>FSoE MainInstance</strong> and <strong>SubInstances</strong>.</p>
+<hr>
+<h2 id="safety-cycle-in-decentralized-mode">Safety Cycle in Decentralized Mode</h2>
+<p>The <strong>safety cycle</strong> in a decentralized FSoE system involves:</p>
+<ol>
+<li>The <strong>FSoE MainInstance</strong> sends a safety "MainInstance Frame" to SubInstances.</li>
+<li>SubInstances reply with their "SubInstance Frames."</li>
+<li>Safety checks, including <strong>CRC validation</strong>, <strong>connection ID verification</strong>, and <strong>watchdog timers</strong>, are performed.</li>
+</ol>
+<p>This cycle ensures reliable transmission of safety data and prompt detection of errors or failures.</p>
+<hr>
+<h2 id="advantages-and-use-cases-of-decentralized-fsoe">Advantages and Use Cases of Decentralized FSoE</h2>
+<p>The decentralized approach offers several advantages:</p>
+<ul>
+<li>The <strong>EtherCAT Master device</strong> does not need to be safety-certified.</li>
+<li><strong>Modularity</strong> and <strong>fault isolation</strong> improve system resilience.</li>
+<li><strong>Use Cases</strong>:</li>
+<li>Safety I/O modules (e.g., emergency stops, safety gates).</li>
+<li>Safe drives and motion control (e.g., STO, SS1, SS2).</li>
+<li>Modular machines with distributed safety devices.</li>
+</ul>
+<hr>
+<h2 id="configuration-of-fsoe-devices">Configuration of FSoE Devices</h2>
+<p>Configuring FSoE devices involves:</p>
+<ol>
+<li><strong>Assigning FSoE Device Addresses</strong>: Using hardware DIP switches or software tools.</li>
+<li><strong>Defining Safety Logic</strong>: Using manufacturer tools like <strong>Beckhoff TwinSAFE with TwinCAT</strong>.</li>
+<li><strong>Mapping Safety Inputs and Outputs</strong>: Connecting safety signals to logical variables.</li>
+<li><strong>Establishing Logical Connections</strong>: Between the FSoE MainInstance and SubInstances.</li>
+<li><strong>Configuring SubDevice-to-SubDevice Communication</strong>: Using the ENI file.</li>
+</ol>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>FSoE (Fail-Safe over EtherCAT) provides a robust solution for transmitting safety-critical data in industrial applications. Its support for both <strong>centralized</strong> and <strong>decentralized</strong> topologies, combined with the flexibility of the <code>ethercat_driver_ros2</code> package, makes it an ideal choice for modern robotics and automation systems. Future developments will focus on enhancing <strong>multi-master redundancy</strong>, <strong>hot-plug support</strong>, and <strong>user-friendly configuration tools</strong>.</p>
 
 
 
