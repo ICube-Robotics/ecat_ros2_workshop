@@ -1,10 +1,9 @@
 ARG ROS_DISTRO="jazzy"
-FROM ros:${ROS_DISTRO}
+FROM mc3ed/ecat_ros2:${ROS_DISTRO}
 
 COPY . /ros2_dev/ecat_ros2_workshop
 RUN apt update && apt upgrade -y
 RUN cd ros2_dev && \
-    apt update && \
     cd ecat_ros2_workshop && \
     . /opt/ros/${ROS_DISTRO}/setup.sh && \
     rosdep install --ignore-src --from-paths . -y -r && \

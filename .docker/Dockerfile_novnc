@@ -1,8 +1,7 @@
 ARG ROS_DISTRO="jazzy"
-FROM ecat_ros2_workshop:${ROS_DISTRO}
+FROM mc3ed/ecat_ros2_workshop:${ROS_DISTRO}
 
-RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -qqy \
     dbus-x11 \
     mesa-utils \
     net-tools \
@@ -19,34 +18,25 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -qqy \
     gnupg \
     wget \
     ca-certificates \
- && rm -rf /var/lib/apt/lists/* \
- && mkdir ~/.vnc \
- && echo "#!/bin/sh\nstartxfce4" > ~/.vnc/xstartup \
- && chmod +x ~/.vnc/xstartup
-
-# Install VSCodium (Open Source build of VSCode)
-RUN wget -qO - https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg \
-  | gpg --dearmor \
-  | sudo tee /usr/share/keyrings/vscodium-archive-keyring.gpg >/dev/null && \ 
-echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/vscodium-archive-keyring.gpg] https://download.vscodium.com/debs vscodium main' \
-  | sudo tee /etc/apt/sources.list.d/vscodium.list && \
-    apt-get update && \
-    apt-get install -y codium && \
-    rm -rf /var/lib/apt/lists/*
-
-# Install Chromium from Debian bookworm repository (avoid snap packages in Docker)
-
-# Add Debian repo (bookworm)
-RUN echo "deb [arch=amd64] http://deb.debian.org/debian bookworm main" >> /etc/apt/sources.list.d/debian.list && \
-    wget -qO - https://ftp-master.debian.org/keys/archive-key-12.asc | apt-key add -
-
-# Install Chromium from Debian
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends chromium && \
-    rm -rf /var/lib/apt/lists/*
-
-# Optional: symlink for convenience
-RUN ln -s /usr/bin/chromium /usr/bin/chromium-browser
+    && mkdir ~/.vnc \
+    && echo "#!/bin/sh\nstartxfce4" > ~/.vnc/xstartup \
+    && chmod +x ~/.vnc/xstartup
+  # Install VSCodium (Open Source build of VSCode)
+RUN wget -q https://github.com/VSCodium/vscodium/releases/download/1.105.17075/codium_1.105.17075_amd64.deb && \
+    apt update && \
+    apt install -y ./codium_1.105.17075_amd64.deb && \
+    rm codium_1.105.17075_amd64.deb && \
+    # Create 'code' alias for codium with options
+    echo "alias code='codium --no-sandbox --user-data-dir=/root/.config/codium'" >> /etc/bash.bashrc && \
+    sed -i 's|^Exec=/usr/share/codium/codium .*|Exec=codium --no-sandbox --user-data-dir=/root/.config/codium %F|' /usr/share/applications/codium.desktop && \
+    # Install Google Chrome (instead of Chromium)
+    wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    apt install -y ./google-chrome-stable_current_amd64.deb && \
+    rm google-chrome-stable_current_amd64.deb && \
+    # Create 'chrome' alias for google-chrome with options
+    echo "alias chrome='google-chrome --no-sandbox'" >> /etc/bash.bashrc && \
+    sed -i 's|^Exec=/usr/bin/google-chrome-stable .*|Exec=google-chrome --no-sandbox %U|' /usr/share/applications/google-chrome.desktop || true && \
+    rm /usr/share/applications/xfce4-web-browser.desktop || true
 
 COPY .docker/ros_entrypoint_novnc.sh /ros_entrypoint.sh
 RUN chmod +x /ros_entrypoint.sh
