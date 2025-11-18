@@ -2,50 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/about/contacts/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/getting-started/docker/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/getting-started/installation/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/controller_tutorial/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/ethercat_tutorial/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/fsoe_tutorial/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/gazebo_tutorial/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/hardware_tutorial/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/launch_tutorial/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/r2c_overview/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
     <url>
          <loc>https://ICube-Robotics.github.io/ecat_ros2_workshop/tutorials/urdf_tutorial/</loc>
-         <lastmod>2025-11-17</lastmod>
+         <lastmod>2025-11-18</lastmod>
     </url>
 </urlset>
